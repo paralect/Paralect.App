@@ -10,14 +10,14 @@ namespace Core.App.Test.Modules
     {
         public override void Start()
         {
-            var counter = ServiceLocator.GetInstance<Tracker>();
-            counter.ModulesInStartOrder.Add(GetType());
+            var tracker = ServiceLocator.GetInstance<Tracker>();
+            tracker.ModulesInStartOrder.Add(GetType());
         }
 
         public override void End()
         {
-            var counter = ServiceLocator.GetInstance<Tracker>();
-            counter.ModulesInEndOrder.Add(GetType());
+            var tracker = ServiceLocator.GetInstance<Tracker>();
+            tracker.ModulesInEndOrder.Add(GetType());
         }
     }
 }
