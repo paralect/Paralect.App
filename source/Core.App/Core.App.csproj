@@ -49,9 +49,7 @@
     <Compile Include="AppModuleCollection.cs" />
     <Compile Include="AppModuleDefinition.cs" />
     <Compile Include="AppModuleDefinitionCollection.cs" />
-    <Compile Include="Temp\App.cs" />
     <Compile Include="Temp\AppManager.cs" />
-    <Compile Include="Temp\IAppModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

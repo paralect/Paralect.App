@@ -4,6 +4,7 @@ namespace Core.App.Temp
 {
     public static class AppManager
     {
+        /*
         public static void StartApplication<T>(IServiceLocator serviceLocator)
             where T : Temp.App
         {
@@ -22,6 +23,6 @@ namespace Core.App.Temp
             where T : Temp.App
         {
             return serviceLocator.GetInstance<T>();
-        }
+        }*/
     }
 }
