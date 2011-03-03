@@ -1,5 +1,5 @@
 using Core.App.Test.Modules;
-using Core.ServiceLocator;
+using Microsoft.Practices.Unity;
 
 namespace Core.App.Test.Apps
 {
@@ -8,7 +8,8 @@ namespace Core.App.Test.Apps
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public TrackerApp3(IServiceLocator serviceLocator) : base(serviceLocator)
+        public TrackerApp3(IUnityContainer serviceLocator)
+            : base(serviceLocator)
         {
             // Trying to remove not existing module
             RemoveModule<TrackerModule1>();

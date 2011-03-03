@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Core.App.Test.Apps;
 using Core.App.Test.Modules;
-using Core.ServiceLocator;
 using Microsoft.Practices.Unity;
 using NUnit.Framework;
 
@@ -12,12 +11,11 @@ namespace Core.App.Test.Tests
     [TestFixture]
     public class TrackerAppTests
     {
-        private IServiceLocator GetServiceLocator()
+        private IUnityContainer GetServiceLocator()
         {
             var unity = new UnityContainer();
             unity.RegisterInstance(new Tracker());
-            var locator = new Core.ServiceLocator.Unity.UnityServiceLocator(unity);
-            return locator;
+            return unity;
         }
 
         [Test]
@@ -25,7 +23,7 @@ namespace Core.App.Test.Tests
         {
             var locator = GetServiceLocator();
             var app = new TrackerApp1(locator);
-            var tracker = locator.GetInstance<Tracker>();
+            var tracker = locator.Resolve<Tracker>();
 
             app.Start();
             Assert.AreEqual(tracker.ModulesInStartOrder.Count, 2);
@@ -43,7 +41,7 @@ namespace Core.App.Test.Tests
         {
             var locator = GetServiceLocator();
             var app = new TrackerApp2(locator);
-            var tracker = locator.GetInstance<Tracker>();
+            var tracker = locator.Resolve<Tracker>();
 
             app.Start();
             Assert.AreEqual(tracker.ModulesInStartOrder.Count, 1);
@@ -59,7 +57,7 @@ namespace Core.App.Test.Tests
         {
             var locator = GetServiceLocator();
             var app = new TrackerApp3(locator);
-            var tracker = locator.GetInstance<Tracker>();
+            var tracker = locator.Resolve<Tracker>();
 
             app.Start();
             Assert.AreEqual(tracker.ModulesInStartOrder.Count, 0);
@@ -73,7 +71,7 @@ namespace Core.App.Test.Tests
         {
             var locator = GetServiceLocator();
             var app = new TrackerApp4(locator);
-            var tracker = locator.GetInstance<Tracker>();
+            var tracker = locator.Resolve<Tracker>();
 
             app.Start();
             Assert.AreEqual(tracker.ModulesInStartOrder.Count, 3);

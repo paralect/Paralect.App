@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Core.ServiceLocator;
+using Microsoft.Practices.Unity;
 
 namespace Core.App
 {
@@ -11,13 +11,13 @@ namespace Core.App
         /// Service Locator for this module
         /// Will be injected by App
         /// </summary>
-        private IServiceLocator _serviceLocator;
+        private IUnityContainer _serviceLocator;
 
         /// <summary>
         /// Service Locator for this module
         /// Will be injected by App 
         /// </summary>
-        public IServiceLocator ServiceLocator
+        public IUnityContainer ServiceLocator
         {
             get { return _serviceLocator; }
             set { _serviceLocator = value; }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Core.ServiceLocator;
+using Microsoft.Practices.Unity;
 
 namespace Core.App
 {
@@ -10,7 +10,7 @@ namespace Core.App
         /// <summary>
         /// Service Locator
         /// </summary>
-        private readonly IServiceLocator _serviceLocator;
+        private readonly IUnityContainer _serviceLocator;
 
         /// <summary>
         /// App modules definitions
@@ -25,7 +25,7 @@ namespace Core.App
         /// <summary>
         /// Service Locator
         /// </summary>
-        public IServiceLocator ServiceLocator
+        public IUnityContainer ServiceLocator
         {
             get { return _serviceLocator; }
         }
@@ -33,7 +33,7 @@ namespace Core.App
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public App(IServiceLocator serviceLocator)
+        public App(IUnityContainer serviceLocator)
         {
             _serviceLocator = serviceLocator;
             _modules = new AppModuleCollection();
@@ -63,7 +63,7 @@ namespace Core.App
         {
             foreach (var definition in _definitions.Definitions)
             {
-                var module = (AppModule) _serviceLocator.GetInstance(definition.Type, definition.Key);
+                var module = (AppModule) _serviceLocator.Resolve(definition.Type, definition.Key);
 
                 // Injection of ServiceLocator
                 module.ServiceLocator = _serviceLocator;

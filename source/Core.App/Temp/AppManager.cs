@@ -1,4 +1,3 @@
-using Core.ServiceLocator;
 
 namespace Core.App.Temp
 {
