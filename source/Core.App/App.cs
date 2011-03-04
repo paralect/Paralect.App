@@ -10,7 +10,7 @@ namespace Core.App
         /// <summary>
         /// Service Locator
         /// </summary>
-        private readonly IUnityContainer _serviceLocator;
+        private readonly IUnityContainer _container;
 
         /// <summary>
         /// App modules definitions
@@ -25,19 +25,19 @@ namespace Core.App
         /// <summary>
         /// Service Locator
         /// </summary>
-        public IUnityContainer ServiceLocator
+        public IUnityContainer Container
         {
-            get { return _serviceLocator; }
+            get { return _container; }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public App(IUnityContainer serviceLocator)
+        public App(IUnityContainer container)
         {
-            _serviceLocator = serviceLocator;
+            _container = container;
             _modules = new AppModuleCollection();
-            _definitions = new AppModuleDefinitionCollection(_serviceLocator);
+            _definitions = new AppModuleDefinitionCollection(_container);
         }
 
         /// <summary>
@@ -63,10 +63,10 @@ namespace Core.App
         {
             foreach (var definition in _definitions.Definitions)
             {
-                var module = (AppModule) _serviceLocator.Resolve(definition.Type, definition.Key);
+                var module = (AppModule) _container.Resolve(definition.Type, definition.Key);
 
                 // Injection of ServiceLocator
-                module.ServiceLocator = _serviceLocator;
+                module.Container = _container;
 
                 _modules.AddModule(module);
                 module.Start();

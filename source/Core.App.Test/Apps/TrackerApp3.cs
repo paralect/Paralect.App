@@ -8,8 +8,7 @@ namespace Core.App.Test.Apps
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public TrackerApp3(IUnityContainer serviceLocator)
-            : base(serviceLocator)
+        public TrackerApp3(IUnityContainer container) : base(container)
         {
             // Trying to remove not existing module
             RemoveModule<TrackerModule1>();

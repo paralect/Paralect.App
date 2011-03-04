@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +10,13 @@ namespace Core.App.Test.Modules
     {
         public override void Start()
         {
-            var tracker = ServiceLocator.Resolve<Tracker>();
+            var tracker = Container.Resolve<Tracker>();
             tracker.ModulesInStartOrder.Add(GetType());
         }
 
         public override void End()
         {
-            var tracker = ServiceLocator.Resolve<Tracker>();
+            var tracker = Container.Resolve<Tracker>();
             tracker.ModulesInEndOrder.Add(GetType());
         }
     }

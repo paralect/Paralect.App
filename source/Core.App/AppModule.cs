@@ -11,16 +11,16 @@ namespace Core.App
         /// Service Locator for this module
         /// Will be injected by App
         /// </summary>
-        private IUnityContainer _serviceLocator;
+        private IUnityContainer _container;
 
         /// <summary>
         /// Service Locator for this module
         /// Will be injected by App 
         /// </summary>
-        public IUnityContainer ServiceLocator
+        public IUnityContainer Container
         {
-            get { return _serviceLocator; }
-            set { _serviceLocator = value; }
+            get { return _container; }
+            set { _container = value; }
         }
 
         public virtual void Start()

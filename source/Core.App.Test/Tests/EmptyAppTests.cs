@@ -11,7 +11,7 @@ namespace Core.App.Test.Tests
     [TestFixture]
     public class EmptyAppTests
     {
-        private IUnityContainer GetServiceLocator()
+        private IUnityContainer GetUnityContainer()
         {
             var unity = new UnityContainer();
             return unity;
@@ -21,8 +21,7 @@ namespace Core.App.Test.Tests
         public void EmptyAppTest()
         {
             // There is no exceptions should be raised
-
-            var app = new EmptyApp(GetServiceLocator());
+            var app = new EmptyApp(GetUnityContainer());
             app.Start();
             app.End();
         }

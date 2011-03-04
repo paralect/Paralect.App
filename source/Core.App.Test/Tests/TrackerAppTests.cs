@@ -11,7 +11,7 @@ namespace Core.App.Test.Tests
     [TestFixture]
     public class TrackerAppTests
     {
-        private IUnityContainer GetServiceLocator()
+        private IUnityContainer GetUnityContainer()
         {
             var unity = new UnityContainer();
             unity.RegisterInstance(new Tracker());
@@ -21,7 +21,7 @@ namespace Core.App.Test.Tests
         [Test]
         public void TrackerApp1Test()
         {
-            var locator = GetServiceLocator();
+            var locator = GetUnityContainer();
             var app = new TrackerApp1(locator);
             var tracker = locator.Resolve<Tracker>();
 
@@ -39,7 +39,7 @@ namespace Core.App.Test.Tests
         [Test]
         public void TrackerApp2Test()
         {
-            var locator = GetServiceLocator();
+            var locator = GetUnityContainer();
             var app = new TrackerApp2(locator);
             var tracker = locator.Resolve<Tracker>();
 
@@ -55,7 +55,7 @@ namespace Core.App.Test.Tests
         [Test]
         public void TrackerApp3Test()
         {
-            var locator = GetServiceLocator();
+            var locator = GetUnityContainer();
             var app = new TrackerApp3(locator);
             var tracker = locator.Resolve<Tracker>();
 
@@ -69,7 +69,7 @@ namespace Core.App.Test.Tests
         [Test]
         public void TrackerApp4Test()
         {
-            var locator = GetServiceLocator();
+            var locator = GetUnityContainer();
             var app = new TrackerApp4(locator);
             var tracker = locator.Resolve<Tracker>();
 

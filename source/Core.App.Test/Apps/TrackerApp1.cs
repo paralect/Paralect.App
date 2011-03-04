@@ -13,7 +13,7 @@ namespace Core.App.Test.Apps
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public TrackerApp1(IUnityContainer serviceLocator) : base(serviceLocator)
+        public TrackerApp1(IUnityContainer container) : base(container)
         {
             AddModule<TrackerModule1>();
 
