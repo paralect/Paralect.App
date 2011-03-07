@@ -48,6 +48,8 @@
     <Compile Include="Apps\TrackerApp4.cs" />
     <Compile Include="Apps\EmptyApp.cs" />
     <Compile Include="Apps\TrackerApp1.cs" />
+    <Compile Include="Modules\CultureModule.cs" />
+    <Compile Include="Modules\MyApp.cs" />
     <Compile Include="Modules\TrackerModule3.cs" />
     <Compile Include="Tests\EmptyAppTests.cs" />
     <Compile Include="Tracker.cs" />

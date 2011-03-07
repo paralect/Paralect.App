@@ -14,7 +14,7 @@ namespace Core.App.Test.Modules
             tracker.ModulesInStartOrder.Add(GetType());
         }
 
-        public override void End()
+        public override void Stop()
         {
             var tracker = Container.Resolve<Tracker>();
             tracker.ModulesInEndOrder.Add(GetType());

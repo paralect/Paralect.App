@@ -78,7 +78,7 @@ namespace Core.App
             for (var i = _modules.Items.Count - 1; i >= 0; i--)
             {
                 var module = _modules.Items[i];
-                module.End();
+                module.Stop();
             }
         }
 

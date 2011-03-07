@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Practices.Unity;
@@ -19,7 +19,7 @@ namespace Core.App
             
         }
 
-        public virtual void End()
+        public virtual void Stop()
         {
             
         }
