@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{53C67DF9-FDC8-4D26-93EB-120D71491D62}</ProjectGuid>
+    <ProjectGuid>{CF30F342-DC3D-48C3-82EA-AF6CBB0039C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.App</RootNamespace>
-    <AssemblyName>Core.App</AssemblyName>
+    <RootNamespace>Core.App.Web</RootNamespace>
+    <AssemblyName>Core.App.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,16 +36,20 @@
       <HintPath>..\..\libs\Microsoft.Practices.Unity\2.0\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="AppDomainUnityContext.cs" />
-    <Compile Include="AppManager.cs" />
-    <Compile Include="AppModule.cs" />
-    <Compile Include="AppModuleCollection.cs" />
-    <Compile Include="AppModuleDefinition.cs" />
-    <Compile Include="AppModuleDefinitionCollection.cs" />
+    <Compile Include="HttpApplicationUnityContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

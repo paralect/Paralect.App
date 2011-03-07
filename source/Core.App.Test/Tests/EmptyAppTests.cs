@@ -21,9 +21,10 @@ namespace Core.App.Test.Tests
         public void EmptyAppTest()
         {
             // There is no exceptions should be raised
-            var app = new EmptyApp(GetUnityContainer());
-            app.Start();
-            app.End();
+            var container = GetUnityContainer();
+
+            AppManager.StartApp<EmptyApp>(container);
+            AppManager.StopApp<EmptyApp>(container);
         }
     }
 }

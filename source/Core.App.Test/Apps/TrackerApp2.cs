@@ -5,11 +5,10 @@ namespace Core.App.Test.Apps
 {
     public class TrackerApp2 : TrackerApp1
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:System.Object"/> class.
-        /// </summary>
-        public TrackerApp2(IUnityContainer container) : base(container)
+        protected override void Setup()
         {
+            base.Setup();
+
             RemoveModule<TrackerModule1>();
         }
     }

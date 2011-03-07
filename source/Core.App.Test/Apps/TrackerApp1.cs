@@ -10,10 +10,7 @@ namespace Core.App.Test.Apps
 {
     public class TrackerApp1 : App
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:System.Object"/> class.
-        /// </summary>
-        public TrackerApp1(IUnityContainer container) : base(container)
+        protected override void Setup()
         {
             AddModule<TrackerModule1>();
 
@@ -21,7 +18,7 @@ namespace Core.App.Test.Apps
             // This call is simply ignored because such module already added
             AddModule<TrackerModule1>();
 
-            AddModule<TrackerModule2>();
+            AddModule<TrackerModule2>();            
         }
     }
 }

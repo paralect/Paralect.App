@@ -78,5 +78,14 @@ namespace Core.App
 
             _moduleDefinitions.Remove(definition);
         }
+
+        /// <summary>
+        /// Remove all definitions from collection
+        /// </summary>
+        public void ClearDefinitions()
+        {
+            _moduleDefinitions.Clear();
+            _moduleDefinitionsByTypeAndKey.Clear();
+        }
     }
 }

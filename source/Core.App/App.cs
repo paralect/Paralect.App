@@ -8,11 +8,6 @@ namespace Core.App
     public abstract class App
     {
         /// <summary>
-        /// Service Locator
-        /// </summary>
-        private readonly IUnityContainer _container;
-
-        /// <summary>
         /// App modules definitions
         /// </summary>
         private AppModuleDefinitionCollection _definitions;
@@ -21,37 +16,41 @@ namespace Core.App
         /// App modules
         /// </summary>
         private AppModuleCollection _modules;
-        
+
         /// <summary>
         /// Service Locator
         /// </summary>
-        public IUnityContainer Container
-        {
-            get { return _container; }
-        }
+        [Dependency]
+        public IUnityContainer Container { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Object"/> class.
         /// </summary>
-        public App(IUnityContainer container)
+        public App()
         {
-            _container = container;
             _modules = new AppModuleCollection();
-            _definitions = new AppModuleDefinitionCollection(_container);
+            _definitions = new AppModuleDefinitionCollection(Container);
         }
+
+        /// <summary>
+        /// App instance should override this method to configure application
+        /// </summary>
+        protected abstract void Setup();
 
         /// <summary>
         /// Start application
         /// </summary>
         public void Start()
         {
+            _definitions.ClearDefinitions();
+            Setup();
             StartModules();
         }
 
         /// <summary>
         /// End application
         /// </summary>
-        public void End()
+        public void Stop()
         {
             EndModules();
         }
@@ -63,10 +62,7 @@ namespace Core.App
         {
             foreach (var definition in _definitions.Definitions)
             {
-                var module = (AppModule) _container.Resolve(definition.Type, definition.Key);
-
-                // Injection of ServiceLocator
-                module.Container = _container;
+                var module = (AppModule) Container.Resolve(definition.Type, definition.Key);
 
                 _modules.AddModule(module);
                 module.Start();
