@@ -16,7 +16,7 @@ namespace Core.App.Test.Modules
 
         public override void Stop()
         {
-            // No need for
+            // No need to perform any cleanuping procedure...
         }
     }
 }
