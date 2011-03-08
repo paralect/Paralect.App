@@ -13,7 +13,7 @@ namespace Core.App.Test.SampleApplication
         [STAThread]
         static void Main()
         {
-            AppManager.StartApp<App>(AppDomainUnityContext.Current);
+            AppManager.StartApp<TimeApp>(AppDomainUnityContext.Current);
         }
     }
 }

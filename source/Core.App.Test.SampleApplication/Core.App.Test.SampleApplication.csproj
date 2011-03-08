@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="TimeApp.cs" />
     <Compile Include="Modules\ApplicationRunnerModule.cs" />
     <Compile Include="Modules\TextRenderingModule.cs" />
     <Compile Include="Modules\TimeModule.cs" />

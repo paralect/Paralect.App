@@ -6,7 +6,7 @@ using Core.App.Test.SampleApplication.Modules;
 
 namespace Core.App.Test.SampleApplication
 {
-    public class App : Core.App.App
+    public class TimeApp : Core.App.App
     {
         protected override void Setup()
         {
